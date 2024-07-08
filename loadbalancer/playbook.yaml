@@ -1,0 +1,20 @@
+- hosts: app_servers
+  become: true
+  tasks:
+    - name: Ensure Apache is installed
+      yum:
+        name: httpd
+        state: present
+        update_cache: true
+
+    - name: Start Apache service
+      service:
+        name: httpd
+        state: started
+        enabled: true
+
+- hosts: load_balancer
+  tasks:
+    - name: Configure load balancer (example task)
+      debug:
+        msg: Load balancer {{ inventory_hostname }} configured.
