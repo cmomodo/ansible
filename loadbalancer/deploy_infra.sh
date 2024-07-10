@@ -1,4 +1,6 @@
 #!/bin/bash
+#set the ansible to the path of the cfg file.
+export ANSIBLE_CONFIG=./ansible.cfg
 
 # Run Terraform
 terraform init
