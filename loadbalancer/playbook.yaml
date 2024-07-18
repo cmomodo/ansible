@@ -22,3 +22,12 @@
     - name: Enable Apache service
       command: systemctl enable httpd
       when: ansible_facts['distribution'] == 'Amazon'
+
+    - name: Generate index.php from template
+      template:
+        src: templates/index.php.j2
+        dest: /var/www/html/index.php
+        owner: apache
+        group: apache
+        mode: "0644"
+      when: ansible_facts['distribution'] == 'Amazon'
