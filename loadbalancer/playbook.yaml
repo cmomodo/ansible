@@ -1,20 +1,33 @@
 - hosts: app_servers
   become: true
   tasks:
-    - name: Ensure Apache is installed
-      yum:
-        name: httpd
-        state: present
-        update_cache: true
+    - name: Gather all facts
+      setup:
+
+    - name: Debug OS and Package Manager
+      debug:
+        msg:
+          - "Distribution: {{ ansible_facts['distribution'] }}"
+          - "OS Family: {{ ansible_facts['os_family'] }}"
+          - "Package Manager: {{ ansible_facts['pkg_mgr'] }}"
+
+    - name: Install Apache using yum
+      command: yum install -y httpd
+      when: ansible_facts['distribution'] == 'Amazon'
 
     - name: Start Apache service
-      service:
-        name: httpd
-        state: started
-        enabled: true
+      command: systemctl start httpd
+      when: ansible_facts['distribution'] == 'Amazon'
 
-- hosts: load_balancer
-  tasks:
-    - name: Configure load balancer (example task)
-      debug:
-        msg: Load balancer {{ inventory_hostname }} configured.
+    - name: Enable Apache service
+      command: systemctl enable httpd
+      when: ansible_facts['distribution'] == 'Amazon'
+
+    - name: Generate index.php from template
+      template:
+        src: templates/index.php.j2
+        dest: /var/www/html/index.php
+        owner: apache
+        group: apache
+        mode: "0644"
+      when: ansible_facts['distribution'] == 'Amazon'
