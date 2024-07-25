@@ -2,8 +2,7 @@
 
 ## Achitecture
 
-![Architecture](src/loadbalancer.png)
-<img src="/src/loadbalancer.png" alt="Architecture" width="600"  />
+<img src="/loadbalancer/src/loadbalancer.png" alt="Architecture" width="600"  />
 
 ## Objective:
 
