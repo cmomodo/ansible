@@ -2,7 +2,7 @@
 
 ## Achitecture
 
-![Architecture](/Users/modouceesay/Desktop/aws/Systems_design/loadbalancer.png)
+![Architecture](/Users/modouceesay/Documents/Collab/ansible/loadbalancer/src/loadbalancer.png)
 
 ## Objective:
 
