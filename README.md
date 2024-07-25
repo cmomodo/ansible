@@ -2,8 +2,8 @@
 
 ## Achitecture
 
-![Architecture](/Users/modouceesay/Documents/Collab/ansible/loadbalancer/src/loadbalancer.png)
-<img src="/src/loadbalancer.png" alt="" width="" 600 />
+![Architecture](src/loadbalancer.png)
+<img src="/src/loadbalancer.png" alt="Architecture" width="600"  />
 
 ## Objective:
 
