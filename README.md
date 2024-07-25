@@ -2,7 +2,7 @@
 
 ## Achitecture
 
-![Architecture](![alt text](loadbalancer.png)
+![Architecture](/Users/modouceesay/Desktop/aws/Systems_design/loadbalancer.png)
 
 ## Objective:
 
